@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+    "target": "es2018",
+    "lib": ["es5", "es6", "ES2018"], // versões do EcmaScript utilizadas
+    "experimentalDecorators": true, // habilita uso de decorators
+    "emitDecoratorMetadata": true, // hablita uso de decorators
+    "module": "commonjs", // método de exportação/importação
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "outDir": "./build", // onde vão ser transpilados os códigos JS
+    "strict": true,
+    "noImplicitAny": true,
+    "strictPropertyInitialization": false
+    },
+    "include": ["src/**/*"], // inclui todos os arquivos .ts dentro de src
+    "exclude": ["node_modules", "dist"], // exclui os arquivos das pastas node_modules e dist
+    "ts-node": {
+    "files": true
+    }
+}
