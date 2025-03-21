@@ -1,20 +1,20 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid"
 
-
 @Entity("usuarios")
 export class Usuario {
 
     @PrimaryColumn()
-    id_usuario: String
+    id_usuario: string
 
     @Column({ nullable: false })
-    nome_completo: String
+    nome_completo: string
     
     @Column({ nullable: false })
-    email: String
+    email: string
+
     @Column({ nullable: false })
-    telefone: String
+    telefone: string
 
     constructor(){
         this.id_usuario = uuid()
