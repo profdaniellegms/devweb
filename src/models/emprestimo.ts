@@ -1,6 +1,7 @@
 import { Column, Entity, PrimaryColumn, ManyToOne } from "typeorm";
 import { v4 as uuid } from "uuid"
 import { Autor } from "./autor";
+import { Usuario } from "./usuario";
 
 @Entity("emprestimos")
 export class Emprestimo {
@@ -20,10 +21,10 @@ export class Emprestimo {
     @Column()
     valor_multa: Date
    
-    @ManyToOne((type) => Emprestimo, {
+    @ManyToOne((type) => Usuario, {
         createForeignKeyConstraints: false,
     })
-    emprestimo: Emprestimo
+    usuario: Usuario
 
     constructor(){
         this.id_emprestimo = uuid()
