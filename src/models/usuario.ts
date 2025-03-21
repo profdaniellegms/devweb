@@ -5,7 +5,7 @@ import { v4 as uuid } from "uuid"
 export class Usuario {
 
     @PrimaryColumn()
-    id: string
+    id_usuario: string
 
     @Column({ nullable: false })
     nome_completo: string
@@ -17,6 +17,6 @@ export class Usuario {
     telefone: string
 
     constructor(){
-        this.id = uuid()
+        this.id_usuario = uuid()
     }
 }
