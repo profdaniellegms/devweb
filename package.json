@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
+    "devweb": "file:",
     "express": "^4.21.2",
     "pg": "^8.14.0",
     "reflect-metadata": "^0.2.2",
