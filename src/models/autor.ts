@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid"
+import { Livro } from "./livro";
 
 @Entity("autores")
 export class Autor {
@@ -12,10 +13,16 @@ export class Autor {
     
     @Column({ nullable: false })
     nacionalidade: string
-    livros: any;
+
+    @Column({ type: "boolean", default: true })
+    ativo: boolean; // Adicionando a flag ativo
+
+    @OneToMany(() => Livro, livro => livro.autor) 
+    livros: Livro[];  
     
 
     constructor(){
-        this.id_autor = uuid()
+        this.id_autor = uuid();
+        this.ativo = true; 
     }
 }

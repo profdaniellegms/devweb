@@ -16,7 +16,11 @@ export class Usuario {
     @Column({ nullable: false })
     telefone: string
 
+    @Column({ type: "boolean", default: true })
+    ativo: boolean;
+
     constructor(){
         this.id_usuario = uuid()
+        this.ativo = true;
     }
 }

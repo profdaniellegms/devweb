@@ -20,11 +20,15 @@ export class Livro{
     @Column({ nullable: false })
     editora: string
 
-    @ManyToOne(() => Autor, autor => autor.livros)  //Relacionamento 
-    @JoinColumn({ name: "fk_autor" })  //chave estrangeira
+    @Column({ type: "boolean", default: true })
+    ativo: boolean;
+
+    @ManyToOne(() => Autor, autor => autor.livros) 
+    @JoinColumn({ name: "fk_autor" })  
     autor: Autor;
 
     constructor(){
-        this.id_livro = uuid()
+        this.id_livro = uuid();
+        this.ativo = true; 
     }
 }

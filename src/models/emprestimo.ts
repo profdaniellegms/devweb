@@ -20,11 +20,15 @@ export class Emprestimo {
     @Column({ nullable: false })
     valor_multa: string
 
+    @Column({ type: "boolean", default: true })
+    ativo: boolean;
+
     @OneToMany(() => Emprestimo, emprestimo => emprestimo.usuario) 
     usuario: Usuario;
     
 
     constructor(){
         this.id_emprestimos = uuid()
+        this.ativo = true;
     }
 }
