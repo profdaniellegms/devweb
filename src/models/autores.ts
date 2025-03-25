@@ -13,6 +13,9 @@ export class Autores {
 	@Column({ nullable: false })
 	nacionalidade: string;
 
+	@Column({ type: "boolean", default: true })
+	ativo: boolean;
+
 	// Relacionamento um para muitos com a tabela Livros
 	@OneToMany(
 		() => Livros,
@@ -22,5 +25,6 @@ export class Autores {
 
 	constructor() {
 		this.id_autor = uuid();
+		this.ativo = true;
 	}
 }
