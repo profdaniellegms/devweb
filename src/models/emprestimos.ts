@@ -19,6 +19,9 @@ export class Emprestimo {
 	@Column({ nullable: false })
 	valor_multa: string;
 
+	@Column({ type: "boolean", default: true })
+	ativo: boolean;
+
 	// Relacionamento muitos para um com a tabela Usuarios
 	@ManyToOne(
 		() => Usuario,
@@ -29,5 +32,6 @@ export class Emprestimo {
 
 	constructor() {
 		this.id_emprestimo = uuid();
+		this.ativo = true;
 	}
 }
