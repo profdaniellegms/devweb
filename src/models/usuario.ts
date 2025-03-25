@@ -16,6 +16,9 @@ export class Usuario {
 	@Column({ nullable: false })
 	telefone: string;
 
+	@Column({ type: "boolean", default: true })
+	ativo: boolean;
+
 	// Relacionamento um para muitos com a tabela Emprestimos
 	@OneToMany(
 		() => Emprestimo,
@@ -25,5 +28,6 @@ export class Usuario {
 
 	constructor() {
 		this.id_usuario = uuid();
+		this.ativo = true;
 	}
 }
