@@ -19,6 +19,9 @@ export class Livros {
 	@Column({ nullable: false })
 	editora: string;
 
+	@Column({ type: "boolean", default: true })
+	ativo: boolean;
+
 	// Relacionamento muitos para um com a tabela Autores
 	@ManyToOne(
 		() => Autores,
@@ -29,5 +32,6 @@ export class Livros {
 
 	constructor() {
 		this.id_livro = uuid();
+		this.ativo = true;
 	}
 }
