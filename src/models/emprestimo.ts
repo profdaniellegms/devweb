@@ -28,5 +28,9 @@ export class Emprestimo {
 
     constructor(){
         this.id_emprestimo = uuid()
+        this.ativo = true
     }
+
+    @Column({ nullable: false })
+    ativo: boolean
 }

@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid"
+import { Emprestimos } from "./emprestimos";
 
 @Entity("usuarios")
 export class Usuario {
@@ -16,7 +17,14 @@ export class Usuario {
     @Column({ nullable: false })
     telefone: string
 
+    @OneToMany(()=>Emprestimos, emp => emp.fk_usuario)
+    emprestimos: Emprestimos[]
+
     constructor(){
         this.id_usuario = uuid()
+        this.ativo = true
     }
+
+    @Column({ nullable: false })
+    ativo: boolean
 }
