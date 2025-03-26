@@ -26,7 +26,11 @@ export class Emprestimo {
     })
     usuario: Usuario
 
+    @Column({ default: true }) 
+    ativo: boolean;
+
     constructor(){
         this.id_emprestimo = uuid()
+        this.ativo = true;
     }
 }
