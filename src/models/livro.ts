@@ -27,5 +27,9 @@ export class Livro {
 
     constructor(){
         this.id_livro = uuid()
+        this.ativo = true
     }
+
+    @Column({ nullable: false })
+    ativo: boolean
 }

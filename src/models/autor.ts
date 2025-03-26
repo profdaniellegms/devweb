@@ -13,7 +13,11 @@ export class Autor {
     @Column({ nullable: false })
     nacionalidade: string
 
-    constructor(){
+    constructor() {
         this.id_autor = uuid()
+        this.ativo = true
     }
+
+    @Column({ nullable: false })
+    ativo: boolean
 }

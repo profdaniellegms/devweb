@@ -22,5 +22,9 @@ export class Usuario {
 
     constructor(){
         this.id_usuario = uuid()
+        this.ativo = true
     }
+
+    @Column({ nullable: false })
+    ativo: boolean
 }
