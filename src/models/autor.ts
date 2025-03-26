@@ -10,7 +10,7 @@ export class Autor {
   @Column({ nullable: false })
   nome: string;
 
-  @Column()
+  @Column( nullable: false )
   nacionalidade: string;
 
   @Column({ nullable: false })
