@@ -1,4 +1,11 @@
-import { Column, Entity, JoinColumn, ManyToMany, ManyToOne, PrimaryColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToMany,
+  ManyToOne,
+  PrimaryColumn,
+} from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Autor } from "./autor";
 import { Emprestimo } from "./emprestimo";
@@ -26,7 +33,11 @@ export class Livro {
   @Column({ nullable: false })
   fk_autor: string;
 
+  @Column({ nullable: false })
+  ativo: boolean;
+
   constructor() {
     this.id_livro = uuid();
+    this.ativo = true;
   }
 }
