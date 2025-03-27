@@ -1,8 +1,8 @@
 import { DataSource } from "typeorm";
 import { Usuario } from "../models/usuario";
-import { Livros } from "../models/livro";
+import { Livro } from "../models/livro";
 import { Autor } from "../models/autor";   
-import { Emprestimos } from "../models/emprestimo";
+import { Emprestimo } from "../models/emprestimo";
 
 // Local Environment - Ambiente local
 export const DevDataSource = new DataSource({
@@ -12,5 +12,5 @@ export const DevDataSource = new DataSource({
     username: "postgres",
     password: "postgres",
     database: "devweb",
-    entities: [Usuario, Livros, Autor, Emprestimos], // Models
+    entities: [Usuario, Livro, Autor, Emprestimo], // Models
 })
