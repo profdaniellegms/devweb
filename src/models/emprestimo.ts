@@ -18,8 +18,15 @@ export class Emprestimo {
     @Column()
     valor_multa: number;
 
+    @Column({ nullable: false})
+    ativo: boolean
+
     @ManyToOne(() => Usuario, usuario => usuario.emprestimos)
     @JoinColumn({name: "id_usuario"})
     @Column({nullable: false})
     fk_usuario: string;
+
+    constructor(){
+        this.ativo = true;
+    }
 }

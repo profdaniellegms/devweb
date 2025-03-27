@@ -13,10 +13,14 @@ export class Autor {
     @Column()
     nacionalidade: string;
 
+    @Column({ nullable: false})
+    ativo: boolean
+
     @OneToMany(() => Livro, livro => livro.fk_autor)
     livros: Livro[];
 
     constructor(){
         this.id_autor = uuid();
+        this.ativo = true;
     }
 }

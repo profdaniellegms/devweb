@@ -16,11 +16,15 @@ export class Usuario {
 
     @Column({ nullable: false })
     telefone: string
+
+    @Column({ nullable: false})
+    ativo: boolean
     
     @OneToMany(() => Emprestimo, emp => emp.fk_usuario)
     emprestimos: Emprestimo[];
 
     constructor(){
         this.id_usuario = uuid()
+        this.ativo = true
     }
 }

@@ -19,6 +19,9 @@ export class Livro {
     @Column({nullable: false})
     editora: string;
 
+    @Column({ nullable: false})
+    ativo: boolean
+
     @ManyToOne(() => Autor, autor => autor.livros)
     @JoinColumn({name: "id_autor"})
     @Column({nullable: false})
@@ -26,5 +29,6 @@ export class Livro {
 
     constructor(){
         this.id_livro = uuid();
+        this.ativo = true;
     }
 }
