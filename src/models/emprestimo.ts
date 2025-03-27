@@ -1,32 +1,32 @@
-import { Column, Entity, PrimaryColumn, ManyToOne } from "typeorm";
-import { v4 as uuid } from "uuid"
-import { Autor } from "./autor";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 import { Usuario } from "./usuario";
 
 @Entity("emprestimos")
 export class Emprestimo {
-
     @PrimaryColumn()
-    id_emprestimo: string
+    id_emprestimo: string;
 
-    @Column({ nullable: false })
-    data_emprestimo: Date
-
-    @Column()
-    data_devol_prevista: Date
-    
-    @Column()
-    data_devol_efetiva: Date
+    @Column({nullable: false})
+    data_emprestimo: Date;
 
     @Column()
-    valor_multa: Date
-   
-    @ManyToOne((type) => Usuario, {
-        createForeignKeyConstraints: false,
-    })
-    usuario: Usuario
+    data_devol_prevista: Date;
+
+    @Column()
+    data_devol_efetiva: Date;
+
+    @Column()
+    valor_multa: number;
+
+    @Column({ nullable: false})
+    ativo: boolean
+
+    @ManyToOne(() => Usuario, usuario => usuario.emprestimos)
+    @JoinColumn({name: "id_usuario"})
+    @Column({nullable: false})
+    fk_usuario: string;
 
     constructor(){
-        this.id_emprestimo = uuid()
+        this.ativo = true;
     }
 }

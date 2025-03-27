@@ -1,31 +1,35 @@
-import { Column, Entity, PrimaryColumn, ManyToOne } from "typeorm";
-import { v4 as uuid } from "uuid"
+import { Column, Entity, JoinColumn, JoinTable, ManyToOne, PrimaryColumn } from "typeorm";
+import { v4 as uuid } from "uuid";
 import { Autor } from "./autor";
 
 @Entity("livros")
 export class Livro {
-
     @PrimaryColumn()
-    id_livro: string
+    id_livro: string;
 
-    @Column({ nullable: false })
-    titulo: string
+    @Column({nullable: false})
+    titulo: string;
+
+    @Column({nullable: false})
+    ano: number;
+
+    @Column({nullable: false})
+    edicao: number;
+
+    @Column({nullable: false})
+    editora: string;
+
+    @Column({ nullable: false})
+    ativo: boolean
     
-    @Column({ nullable: false })
-    ano: string
 
-    @Column({ nullable: false })
-    edicao: string
-
-    @Column({ nullable: false })
-    editora: string
-
-    @ManyToOne((type) => Autor, {
-        createForeignKeyConstraints: false,
-    })
-    autor: Autor
+    @ManyToOne(() => Autor, autor => autor.livros)
+    @JoinColumn({name: "id_autor"})
+    @Column({nullable: false})
+    fk_autor: string;
 
     constructor(){
-        this.id_livro = uuid()
+        this.id_livro = uuid();
+        this.ativo = true;
     }
 }
