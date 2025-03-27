@@ -1,6 +1,7 @@
-import { Column, Entity, PrimaryColumn, ManyToOne } from "typeorm";
-import { v4 as uuid } from "uuid"
 import { Autor } from "./autor";
+import { Column, Entity, ManyToOne, PrimaryColumn } from "typeorm";
+import { v4 as uuid } from "uuid"
+
 
 @Entity("livros")
 export class Livro {
@@ -19,9 +20,9 @@ export class Livro {
 
     @Column({ nullable: false })
     editora: string
-
+    
     @ManyToOne((type) => Autor, {
-        createForeignKeyConstraints: false,
+        createForeignKeyConstraints: false
     })
     autor: Autor
 

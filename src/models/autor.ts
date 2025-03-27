@@ -12,6 +12,7 @@ export class Autor {
     
     @Column({ nullable: false })
     nacionalidade: string
+    
 
     constructor(){
         this.id_autor = uuid()

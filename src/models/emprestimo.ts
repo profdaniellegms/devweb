@@ -1,28 +1,30 @@
-import { Column, Entity, PrimaryColumn, ManyToOne } from "typeorm";
+import { Column, Double, Entity, ManyToOne, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid"
-import { Autor } from "./autor";
 import { Usuario } from "./usuario";
 
+
+
 @Entity("emprestimos")
-export class Emprestimo {
+export class Emprestimo{
+
 
     @PrimaryColumn()
     id_emprestimo: string
 
     @Column({ nullable: false })
     data_emprestimo: Date
-
-    @Column()
-    data_devol_prevista: Date
     
-    @Column()
+    @Column({ nullable: false })
+    data_devol_prevista: Date
+
     data_devol_efetiva: Date
 
-    @Column()
-    valor_multa: Date
-   
+    @Column({ nullable: false })
+    valor_multa: Double
+    
     @ManyToOne((type) => Usuario, {
-        createForeignKeyConstraints: false,
+        createForeignKeyConstraints: false
+
     })
     usuario: Usuario
 
