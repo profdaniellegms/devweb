@@ -5,7 +5,7 @@ import { Usuario } from "./usuario";
 
 
 @Entity("emprestimos")
-export class Emprestimos{
+export class Emprestimo{
 
     @PrimaryColumn()
     id_emprestimo: string
