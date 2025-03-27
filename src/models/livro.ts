@@ -21,6 +21,7 @@ export class Livro {
 
     @Column({ nullable: false})
     ativo: boolean
+    
 
     @ManyToOne(() => Autor, autor => autor.livros)
     @JoinColumn({name: "id_autor"})
