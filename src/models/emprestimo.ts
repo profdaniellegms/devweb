@@ -7,6 +7,7 @@ import { Usuario } from "./usuario";
 @Entity("emprestimos")
 export class Emprestimo{
 
+
     @PrimaryColumn()
     id_emprestimo: string
 
@@ -23,6 +24,7 @@ export class Emprestimo{
     
     @ManyToOne((type) => Usuario, {
         createForeignKeyConstraints: false
+
     })
     usuario: Usuario
 
